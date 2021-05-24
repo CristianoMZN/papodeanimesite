@@ -1,0 +1,134 @@
+:root {
+  /* PALETA DE CORES */
+  --black: #000000;
+  --blue: #14213D;
+  --orange: #FCA311;
+  --platinum: #E5E5E5;
+  --white: #FFFFFF;
+}
+body {
+  background: var(--blue);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+body a,
+body a:visited,
+body a:active {
+  font-family: "Arial Black";
+  font-style: italic;
+  text-decoration: none;
+  font-size: 24px;
+  color: #000000;
+}
+body header {
+  width: 100%;
+  height: fit-content;
+  margin: 0;
+}
+body header img {
+  width: 100%;
+  margin: 0;
+}
+body .menu {
+  width: 100%;
+  display: flex;
+  margin: auto;
+}
+body .menu .item {
+  max-width: calc(100% / 3);
+  min-width: 200px;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  background: var(--blue);
+  transition: background 2s;
+}
+body .menu .item:hover {
+  background: white;
+}
+body #content {
+  color: var(--platinum);
+  margin: 50px auto;
+  width: 100%;
+}
+@media (max-width: 920px) {
+  body #content {
+    width: 90%;
+  }
+}
+body #content .episodes-container,
+body #content .staff-container {
+  display: flex;
+  width: 100%;
+}
+@media (min-width: 920px) {
+  body #content .episodes-container,
+  body #content .staff-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 919px) {
+  body #content .episodes-container,
+  body #content .staff-container {
+    flex-direction: column;
+  }
+}
+body #content .episode,
+body #content .staff {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border-radius: 15px;
+  background-color: var(--black);
+  margin: 0px auto 50px auto;
+}
+@media (max-width: 919px) {
+  body #content .episode,
+  body #content .staff {
+    width: 90%;
+  }
+}
+body #content .episode .img,
+body #content .staff .img {
+  width: 50%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 30px auto 10px auto;
+}
+body #content .episode .title,
+body #content .staff .title {
+  text-align: center;
+  margin: 15px;
+}
+body #content .episode .desc,
+body #content .staff .desc {
+  margin: 15px;
+}
+body #content .episode .fixed-desc,
+body #content .staff .fixed-desc {
+  margin: auto 15px 15px 15px;
+}
+body #content .episode audio,
+body #content .staff audio {
+  display: flex;
+  margin: 0 auto 20px auto;
+}
+body footer {
+  color: white;
+  display: flex;
+  width: 100%;
+  height: 150px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #000000;
+}

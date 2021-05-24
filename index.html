@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Papo de Anime!</title>
+</head>
+<body>
+    <header id=header>
+        <img v-bind:src="url">
+    </header>
+    <div class="menu">
+        <a class="item" href="index.html">Home</a>
+        <a class="item" href="staff.html">Staff</a>
+        <a class="item" href="mailto:contato@papodeanime.com.br">Contato</a>
+    </div>
+
+    <div id="content">
+        <div class="episodes-container">
+            <div class="episode" v-for="episode in episodes">
+                <div class="img">
+                    <img width="100%" v-bind:src=episode.img />
+                </div>
+                <h1 class="title">{{episode.title}}</h1>
+                <p class="desc" v-html=episode.desc></p>
+                <p class="fixed-desc">Ouça o episódio ou baixe usando o player</p>
+                <audio controls>
+                    <source v-bind:src="episode.mp3">
+                </audio>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>2021 - Papo de Anime</footer>
+    <script src="scripts/vue.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
