@@ -14,9 +14,9 @@ body {
   display: flex;
   flex-direction: column;
 }
-body a,
-body a:visited,
-body a:active {
+body .menu a,
+body .menu a:visited,
+body .menu a:active {
   font-family: "Arial Black";
   font-style: italic;
   text-decoration: none;
@@ -112,6 +112,14 @@ body #content .staff .title {
 body #content .episode .desc,
 body #content .staff .desc {
   margin: 15px;
+}
+body #content .episode .desc a,
+body #content .staff .desc a,
+body #content .episode .desc a:visited,
+body #content .staff .desc a:visited,
+body #content .episode .desc a:active,
+body #content .staff .desc a:active {
+  color: var(--orange);
 }
 body #content .episode .fixed-desc,
 body #content .staff .fixed-desc {
