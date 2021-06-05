@@ -48,15 +48,11 @@ body .menu .item {
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  transition: background 2s;
 }
 @media (max-width: 919px) {
   body .menu .item {
     min-width: 0;
   }
-}
-body .menu .item:hover {
-  background: white;
 }
 body #content {
   color: var(--platinum);
