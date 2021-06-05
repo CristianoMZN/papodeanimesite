@@ -14,6 +14,22 @@ body {
   display: flex;
   flex-direction: column;
 }
+body #header {
+  width: 100%;
+  height: fit-content;
+  margin: 0;
+  display: flex;
+}
+body #header img {
+  width: 100%;
+  margin: 0;
+}
+body .menu {
+  width: 100%;
+  display: flex;
+  margin: 0 auto auto auto;
+  background-color: var(--black);
+}
 body .menu a,
 body .menu a:visited,
 body .menu a:active {
@@ -21,21 +37,7 @@ body .menu a:active {
   font-style: italic;
   text-decoration: none;
   font-size: 24px;
-  color: #000000;
-}
-body header {
-  width: 100%;
-  height: fit-content;
-  margin: 0;
-}
-body header img {
-  width: 100%;
-  margin: 0;
-}
-body .menu {
-  width: 100%;
-  display: flex;
-  margin: auto;
+  color: var(--platinum);
 }
 body .menu .item {
   max-width: calc(100% / 3);
@@ -46,8 +48,12 @@ body .menu .item {
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  background: var(--blue);
   transition: background 2s;
+}
+@media (max-width: 919px) {
+  body .menu .item {
+    min-width: 0;
+  }
 }
 body .menu .item:hover {
   background: white;

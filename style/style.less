@@ -15,21 +15,11 @@ body {
     display: flex;
     flex-direction: column;
 
-    .menu {
-        a,
-        a:visited,
-        a:active {
-            font-family: "Arial Black";
-            font-style: italic;
-            text-decoration: none;
-            font-size: 24px;
-            color: #000000;
-        }
-    }
-    header {
+    #header {
         width: 100%;
         height: fit-content;
         margin: 0;
+        display: flex;
 
         img {
             width: 100%;
@@ -39,7 +29,18 @@ body {
     .menu{
         width: 100%;
         display: flex;
-        margin: auto;
+        margin: 0 auto auto auto;
+        background-color: var(--black);
+
+        a,
+        a:visited,
+        a:active {
+            font-family: "Arial Black";
+            font-style: italic;
+            text-decoration: none;
+            font-size: 24px;
+            color: var(--platinum);
+        }
 
         .item{
             max-width: calc(100% / 3);
@@ -50,8 +51,11 @@ body {
             justify-content: center;
             align-items: center;
             border: 2px solid black;
-            background: var(--blue);
             transition: background 2s;
+            
+            @media (max-width: 919px) {
+                min-width:0;
+            }
         }
         .item:hover{
             background: white;
