@@ -66,13 +66,14 @@ body #content {
 }
 body #content .episodes-container,
 body #content .staff-container {
-  display: flex;
   width: 100%;
+  transition: opacity 2s;
+  opacity: 1;
 }
 @media (min-width: 920px) {
   body #content .episodes-container,
   body #content .staff-container {
-    display: grid;
+    display: none;
     grid-template-columns: auto auto;
     width: 70%;
     margin: 0 auto;
@@ -132,6 +133,31 @@ body #content .staff audio {
   display: flex;
   margin: 0 auto 20px auto;
 }
+body #content .loading-content {
+  transition: opacity 2s;
+  opacity: 1;
+}
+body #content .loading-content .loading-container {
+  display: flex;
+  position: relative;
+  margin: auto;
+  width: 498px;
+  height: 373px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+body #content .loading-content .loading-container img {
+  position: absolute;
+}
+body #content .loading-content .loading-text {
+  font-family: "Arial Black";
+  font-style: italic;
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  font-size: 32px;
+}
 body footer {
   color: white;
   display: flex;
@@ -141,4 +167,7 @@ body footer {
   text-align: center;
   align-items: center;
   background-color: #000000;
+}
+body .hidden {
+  opacity: 0!important;
 }

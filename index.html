@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="shortcut icon" href="favicon.ico">
     <title>Papo de Anime!</title>
 </head>
+
 <body>
     <header id=header>
         <img v-bind:src="url">
@@ -18,23 +21,31 @@
     </div>
 
     <div id="content">
-        <div class="episodes-container">
-            <div class="episode" v-for="episode in episodes">
-                <div class="img">
-                    <img width="100%" v-bind:src=episode.img />
+        <template v-if="episodes">
+            <div class="episodes-container hidden">
+                <div class="episode" v-for="episode in episodes">
+                    <div class="img">
+                        <img width="100%" v-bind:src=episode.img />
+                    </div>
+                    <h1 class="title">{{episode.title}}</h1>
+                    <p class="desc" v-html=episode.desc></p>
+                    <p class="fixed-desc">Ouça o episódio ou baixe usando o player</p>
+                    <audio controls>
+                        <source v-bind:src="episode.mp3">
+                    </audio>
                 </div>
-                <h1 class="title">{{episode.title}}</h1>
-                <p class="desc" v-html=episode.desc></p>
-                <p class="fixed-desc">Ouça o episódio ou baixe usando o player</p>
-                <audio controls>
-                    <source v-bind:src="episode.mp3">
-                </audio>
             </div>
+        </template>
+        <div class="loading-content">
+            <div class="loading-container">
+                <img src="img/loading.gif" alt="" srcset="" style="border: 0;">
+            </div>
+            <span class="loading-text">Carregando...</span>
         </div>
     </div>
 
 
-    <footer>2021 - Papo de Anime</footer>
+    <footer>2021 - Papo de Anime!</footer>
     <script src="scripts/vue.js"></script>
     <script src="scripts/script.js"></script>
 </body>

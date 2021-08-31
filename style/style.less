@@ -67,11 +67,12 @@ body {
         }
 
         .episodes-container, .staff-container {
-            display: flex;
             width: 100%;
+            transition: opacity 2s;
+            opacity: 1;
 
             @media (min-width: 920px) {
-                display: grid;
+                display: none;
                 grid-template-columns: auto auto;
                 width: 70%;
                 margin: 0 auto;
@@ -125,6 +126,33 @@ body {
                 margin: 0 auto 20px auto;
             }
         }
+        .loading-content{
+            transition: opacity 2s;
+            opacity: 1;
+
+            .loading-container{
+                display: flex;
+                position: relative;
+                margin: auto;
+                width: 498px;
+                height: 373px;
+                overflow: hidden;
+                justify-content: center;
+                align-items: center;
+
+                img{
+                    position: absolute;
+                }
+            }
+            .loading-text{
+                font-family: "Arial Black";
+                font-style: italic;
+                display: flex;
+                width: fit-content;
+                margin: auto;
+                font-size: 32px;
+            }
+        }
     }
     footer{
         color: white;
@@ -135,5 +163,8 @@ body {
         text-align: center;
         align-items: center;
         background-color: #000000;
+    }
+    .hidden{
+        opacity: 0!important;
     }
 }
