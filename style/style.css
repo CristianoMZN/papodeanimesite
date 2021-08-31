@@ -16,7 +16,7 @@ body {
 }
 body #header {
   width: 100%;
-  height: fit-content;
+  max-height: 250px;
   margin: 0;
   display: flex;
 }
