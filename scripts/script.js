@@ -50,7 +50,9 @@ function xmlToDoc(xml) {
 }
 function clearLoading(){
     var container = document.querySelector(".loading-content");
-    
+    if(!container){
+        return;
+    }
     var startTransition = setTimeout(
         function(){
             container.classList.add("hidden");

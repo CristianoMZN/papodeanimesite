@@ -66,7 +66,7 @@ body {
             width: 90%;
         }
 
-        .episodes-container, .staff-container {
+        .episodes-container{
             width: 100%;
             transition: opacity 2s;
             opacity: 1;
@@ -82,7 +82,19 @@ body {
                 flex-direction: column;
             }
         }
+        .staff-container{
+            display: flex;
 
+            @media (min-width: 920px) {
+                grid-template-columns: auto auto;
+                width: 70%;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 919px) {
+                flex-direction: column;
+            }
+        }
         .episode, .staff {
             display: flex;
             flex-direction: column;

@@ -64,15 +64,13 @@ body #content {
     width: 90%;
   }
 }
-body #content .episodes-container,
-body #content .staff-container {
+body #content .episodes-container {
   width: 100%;
   transition: opacity 2s;
   opacity: 1;
 }
 @media (min-width: 920px) {
-  body #content .episodes-container,
-  body #content .staff-container {
+  body #content .episodes-container {
     display: none;
     grid-template-columns: auto auto;
     width: 70%;
@@ -80,7 +78,21 @@ body #content .staff-container {
   }
 }
 @media (max-width: 919px) {
-  body #content .episodes-container,
+  body #content .episodes-container {
+    flex-direction: column;
+  }
+}
+body #content .staff-container {
+  display: flex;
+}
+@media (min-width: 920px) {
+  body #content .staff-container {
+    grid-template-columns: auto auto;
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 919px) {
   body #content .staff-container {
     flex-direction: column;
   }
