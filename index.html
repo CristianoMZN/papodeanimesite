@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
     <link rel="shortcut icon" href="favicon.ico">
     <title>Papo de Anime!</title>
@@ -21,19 +24,28 @@
     </div>
 
     <div id="content">
-        <template v-if="episodes">
-            <div class="episodes-container hidden">
-                <div class="episode" v-for="episode in episodes">
+        <template v-if="episodes && !selectedEpisode">
+            <div class="episodes-container">
+                <div class="episode" v-for="episode in episodes" v-bind:id="episode.id" onclick="setEpisode(this)">
                     <div class="img">
                         <img width="100%" v-bind:src=episode.img />
                     </div>
                     <h1 class="title">{{episode.title}}</h1>
-                    <p class="desc" v-html=episode.desc></p>
-                    <p class="fixed-desc">Ouça o episódio ou baixe usando o player</p>
-                    <audio controls>
-                        <source v-bind:src="episode.mp3">
-                    </audio>
                 </div>
+            </div>
+        </template>
+        <template v-if="selectedEpisode">
+            <div class="selected-episode">
+                <h1 class="close-button" onclick="clearEpisode()">X</h1>
+                <div class="img">
+                    <img width="100%" v-bind:src=selectedEpisode.img />
+                </div>
+                <h1 class="title">{{selectedEpisode.title}}</h1>
+                <p class="desc" v-html=selectedEpisode.desc></p>
+                <p class="fixed-desc">Ouça o episódio ou baixe usando o player</p>
+                <audio controls>
+                    <source v-bind:src="selectedEpisode.mp3">
+                </audio>
             </div>
         </template>
         <div class="loading-content">
@@ -44,9 +56,8 @@
         </div>
     </div>
 
-
     <footer>2021 - Papo de Anime!</footer>
-    <script src="scripts/vue.js"></script>
+    <script src="scripts/vue.min.js"></script>
     <script src="scripts/script.js"></script>
 </body>
 </html>
