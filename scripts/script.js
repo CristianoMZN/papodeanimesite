@@ -95,7 +95,7 @@ document.body.onresize = function(evt){
 }
 function clearEpisode() {
     app.selectedEpisode = null;
-    //window.location.hash = '';
+    window.location.hash = '';
 }
 function setEpisode(event) {
     var id = event.getAttribute("id");
