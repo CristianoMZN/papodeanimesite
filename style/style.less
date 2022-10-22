@@ -14,32 +14,114 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: "Arial Black";
+    font-style: italic;
+    text-decoration: none;
+    font-size: 24px;
+    color: var(--platinum);
 
-    h1{
+    h1 {
         font-family: 'Bangers', cursive;
         letter-spacing: 2px;
     }
 
-    p{
+    p {
         font-family: 'Carter One', cursive;
     }
-
-    #header {
-        width: 100%;
-        max-height: 250px;
-        margin: 0;
-        display: flex;
-
-        img {
+    @media (min-width: 500px){
+        #header {
             width: 100%;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+    
+            .image {
+                width: 100%;
+                height: 300px;
+                margin: 0;
+                display: flex;
+    
+                .back {
+                    width: 100%;
+                    filter: blur(5px);
+                    z-index: 0;
+                    position: absolute;
+                    height: 300px;
+                }
+    
+                .front {
+                    margin: auto;
+                    height: inherit;
+                    position: relative;
+                    z-index: 1;
+                }
+            }
+    
+            .controls {
+                position: absolute;
+                width: 100%;
+                height: 300px;
+                display: flex;
+    
+                div.prev,
+                div.next {
+                    width: 100px;
+                    display: flex;
+                    height: inherit;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    text-align: center;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 75px;
+                    font-style: normal;
+                }
+    
+                .prev {
+                    margin: 0 auto 0 0;
+                }
+    
+                .next {
+                    margin: 0 0 0 auto;
+                }
+    
+                .title {
+                    width: max-content;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    display: flex;
+                    height: 50px;
+                    z-index: 2;
+                    align-items: center;
+                    margin: auto auto 0 auto;
+                    border-radius: 15px 15px 0 0;
+                    background-color: #000000;
+                }
+    
+            }
+    
+            .hidden {
+                display: none;
+            }
         }
     }
-    .menu{
+    @media (max-width: 499px){
+        #header{
+            display: none;
+        }
+    }
+
+    .main-title {
         width: 100%;
         display: flex;
+        z-index: 1;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         margin: 0 auto auto auto;
         background-color: var(--black);
+        cursor: pointer;
 
         a,
         a:visited,
@@ -50,22 +132,8 @@ body {
             font-size: 24px;
             color: var(--platinum);
         }
-
-        .item{
-            max-width: calc(100% / 3);
-            min-width: 200px;
-            height: 50px;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid black;
-            
-            @media (max-width: 919px) {
-                min-width:0;
-            }
-        }
     }
+
     #content {
         color: var(--platinum);
         margin: 50px auto;
@@ -73,10 +141,10 @@ body {
 
         @media (max-width: 920px) {
             width: 90%;
-            margin-top:15px;
+            margin-top: 15px;
         }
 
-        .episodes-container{
+        .episodes-container {
             width: 100%;
             transition: opacity 2s;
             opacity: 1;
@@ -92,7 +160,8 @@ body {
                 flex-direction: column;
             }
         }
-        .staff-container{
+
+        .staff-container {
             display: flex;
 
             @media (min-width: 920px) {
@@ -105,7 +174,8 @@ body {
                 flex-direction: column;
             }
         }
-        .episode, .staff {
+
+        .episode{
             display: flex;
             cursor: pointer;
             flex-direction: column;
@@ -149,7 +219,8 @@ body {
                 margin: 0 auto 20px auto;
             }
         }
-        .selected-episode{
+
+        .selected-episode {
             @media (min-width: 920px) {
                 display: grid;
 
@@ -162,6 +233,7 @@ body {
                 grid-column-gap: 3%;
                 grid-row-gap: 30px;
                 padding: 30px;
+
                 .img {
                     grid-column: 1;
                     grid-row-start: 1;
@@ -173,12 +245,16 @@ body {
                     grid-column: 2;
                     grid-row: 1;
                 }
-                .desc, .fixed-desc, audio{
+
+                .desc,
+                .fixed-desc,
+                audio {
                     grid-column-start: 2;
                     grid-column-end: 3;
 
                 }
-                .close-button{
+
+                .close-button {
                     grid-column-start: 3;
                     grid-column-end: 4;
                     font-size: 50px;
@@ -190,20 +266,22 @@ body {
                 }
 
             }
-            @media (max-width: 919px){
-                .close-button{
+
+            @media (max-width: 919px) {
+                .close-button {
                     display: flex;
                     justify-content: right;
                     width: 90%;
                 }
             }
-            
+
         }
-        .loading-content{
+
+        .loading-content {
             transition: opacity 2s;
             opacity: 1;
 
-            .loading-container{
+            .loading-container {
                 display: flex;
                 position: relative;
                 margin: auto;
@@ -213,11 +291,12 @@ body {
                 justify-content: center;
                 align-items: center;
 
-                img{
+                img {
                     position: absolute;
                 }
             }
-            .loading-text{
+
+            .loading-text {
                 font-family: "Arial Black";
                 font-style: italic;
                 display: flex;
@@ -227,7 +306,8 @@ body {
             }
         }
     }
-    footer{
+
+    footer {
         color: white;
         display: flex;
         width: 100%;
@@ -237,7 +317,8 @@ body {
         align-items: center;
         background-color: #000000;
     }
-    .hidden{
-        opacity: 0!important;
+
+    .hidden {
+        opacity: 0 !important;
     }
 }

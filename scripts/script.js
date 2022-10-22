@@ -4,8 +4,11 @@ getData("https://anchor.fm/s/35969184/podcast/rss");
 var episodes, app;
 var banner = new Vue(
     {
-        el:"#header",
-        data: {url: ""}
+        el:"#header,.main-title",
+        data: {
+            episodes: [],
+            selected: 0
+        }
     }
 );
 setBanner();
@@ -42,6 +45,9 @@ function xmlToDoc(xml) {
     }
     console.log(episodes);
 
+    for (let i = 0; i < 4; i++) {
+        banner.episodes.push(episodes[i]);
+    }
     app = new Vue(
         {
             el:"#content",
@@ -123,4 +129,24 @@ function searchEpisode(){
             return;
         }
     }
+}
+
+function prevBanner() {
+    if (banner.selected == 0) {
+        banner.selected = 3
+    }
+    else {
+        banner.selected = banner.selected - 1
+    }
+    console.log("novo banner selecionado: ", banner.episodes[banner.selected].title);
+}
+
+function nextBanner() {
+    if (banner.selected == 3) {
+        banner.selected = 0
+    }
+    else {
+        banner.selected = banner.selected + 1
+    }
+    console.log("novo banner selecionado: ", banner.episodes[banner.selected].title);
 }

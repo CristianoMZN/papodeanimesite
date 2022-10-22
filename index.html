@@ -15,13 +15,18 @@
 
 <body>
     <header id=header>
-        <img v-bind:src="url">
+        <div class="image" v-if="episodes.length > 0">
+            <template v-for="(episode,index) in episodes">
+                <img class="back" :class="{hidden: index != selected}" :src="episodes[index].img" v-bind:id="episode.id" onclick="setEpisode(this)">
+                <img class="front" :class="{hidden: index != selected}" :src="episodes[index].img" v-bind:id="episode.id" onclick="setEpisode(this)">
+            </template>
+        </div>
+        <div class="controls">
+            <div class="prev" onclick="prevBanner()">&lt</div>
+            <div class="next" onclick="nextBanner()">&gt</div>
+        </div>
+        <div class="main-title"  v-if="episodes.length > 0" v-bind:id="episodes[selected].id" onclick="setEpisode(this)">{{episodes[selected].title}}</div>
     </header>
-    <div class="menu">
-        <a class="item" href="index.html">Home</a>
-        <a class="item" href="staff.html">Staff</a>
-        <a class="item" href="mailto:contato@papodeanime.com.br">Contato</a>
-    </div>
 
     <div id="content">
         <template v-if="episodes && !selectedEpisode">
@@ -43,9 +48,7 @@
                 <h1 class="title">{{selectedEpisode.title}}</h1>
                 <p class="desc" v-html=selectedEpisode.desc></p>
                 <p class="fixed-desc">Ouça o episódio ou baixe usando o player</p>
-                <audio controls>
-                    <source v-bind:src="selectedEpisode.mp3">
-                </audio>
+                <p class="fixed-desc"><a href="selectedEpisode.mp3">Ouvir episódio</a></p>
             </div>
         </template>
         <div class="loading-content">
@@ -60,4 +63,5 @@
     <script src="scripts/vue.min.js"></script>
     <script src="scripts/script.js"></script>
 </body>
+
 </html>

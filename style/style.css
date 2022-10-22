@@ -13,6 +13,11 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  font-family: "Arial Black";
+  font-style: italic;
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--platinum);
 }
 body h1 {
   font-family: 'Bangers', cursive;
@@ -21,45 +26,98 @@ body h1 {
 body p {
   font-family: 'Carter One', cursive;
 }
-body #header {
-  width: 100%;
-  max-height: 250px;
-  margin: 0;
-  display: flex;
+@media (min-width: 500px) {
+  body #header {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  body #header .image {
+    width: 100%;
+    height: 300px;
+    margin: 0;
+    display: flex;
+  }
+  body #header .image .back {
+    width: 100%;
+    filter: blur(5px);
+    z-index: 0;
+    position: absolute;
+    height: 300px;
+  }
+  body #header .image .front {
+    margin: auto;
+    height: inherit;
+    position: relative;
+    z-index: 1;
+  }
+  body #header .controls {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    display: flex;
+  }
+  body #header .controls div.prev,
+  body #header .controls div.next {
+    width: 100px;
+    display: flex;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    font-style: normal;
+  }
+  body #header .controls .prev {
+    margin: 0 auto 0 0;
+  }
+  body #header .controls .next {
+    margin: 0 0 0 auto;
+  }
+  body #header .controls .title {
+    width: max-content;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    height: 50px;
+    z-index: 2;
+    align-items: center;
+    margin: auto auto 0 auto;
+    border-radius: 15px 15px 0 0;
+    background-color: #000000;
+  }
+  body #header .hidden {
+    display: none;
+  }
 }
-body #header img {
-  width: 100%;
-  margin: 0;
+@media (max-width: 499px) {
+  body #header {
+    display: none;
+  }
 }
-body .menu {
+body .main-title {
   width: 100%;
   display: flex;
+  z-index: 1;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 0 auto auto auto;
   background-color: var(--black);
+  cursor: pointer;
 }
-body .menu a,
-body .menu a:visited,
-body .menu a:active {
+body .main-title a,
+body .main-title a:visited,
+body .main-title a:active {
   font-family: "Arial Black";
   font-style: italic;
   text-decoration: none;
   font-size: 24px;
   color: var(--platinum);
-}
-body .menu .item {
-  max-width: calc(100% / 3);
-  min-width: 200px;
-  height: 50px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-}
-@media (max-width: 919px) {
-  body .menu .item {
-    min-width: 0;
-  }
 }
 body #content {
   color: var(--platinum);
@@ -105,8 +163,7 @@ body #content .staff-container {
     flex-direction: column;
   }
 }
-body #content .episode,
-body #content .staff {
+body #content .episode {
   display: flex;
   cursor: pointer;
   flex-direction: column;
@@ -116,41 +173,32 @@ body #content .staff {
   margin: 0px auto 50px auto;
 }
 @media (max-width: 919px) {
-  body #content .episode,
-  body #content .staff {
+  body #content .episode {
     width: 90%;
   }
 }
-body #content .episode .img,
-body #content .staff .img {
+body #content .episode .img {
   width: 50%;
   border-radius: 10px;
   overflow: hidden;
   margin: 30px auto 10px auto;
 }
-body #content .episode .title,
-body #content .staff .title {
+body #content .episode .title {
   text-align: center;
   margin: 15px;
 }
-body #content .episode .desc,
-body #content .staff .desc {
+body #content .episode .desc {
   margin: 15px;
 }
 body #content .episode .desc a,
-body #content .staff .desc a,
 body #content .episode .desc a:visited,
-body #content .staff .desc a:visited,
-body #content .episode .desc a:active,
-body #content .staff .desc a:active {
+body #content .episode .desc a:active {
   color: var(--orange);
 }
-body #content .episode .fixed-desc,
-body #content .staff .fixed-desc {
+body #content .episode .fixed-desc {
   margin: auto 15px 15px 15px;
 }
-body #content .episode audio,
-body #content .staff audio {
+body #content .episode audio {
   display: flex;
   margin: 0 auto 20px auto;
 }
@@ -237,5 +285,5 @@ body footer {
   background-color: #000000;
 }
 body .hidden {
-  opacity: 0!important;
+  opacity: 0 !important;
 }
