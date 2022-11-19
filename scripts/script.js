@@ -69,14 +69,14 @@ function clearLoading(){
         function(){
             container.classList.add("hidden");
         },
-        100       
+        10
     );
 
     var setGrid = setTimeout(
         function(){
             document.querySelector(".episodes-container").setAttribute("style", "display:grid;");
         },
-        2000
+        1000
     );
 
     var setOpacity = setTimeout(
@@ -86,7 +86,7 @@ function clearLoading(){
 
             searchEpisode()
         },
-        2100
+        1010
     );
 }
 function setBanner(){

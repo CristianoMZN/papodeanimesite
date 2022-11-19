@@ -250,7 +250,7 @@ body #content .episode audio {
   }
 }
 body #content .loading-content {
-  transition: opacity 2s;
+  transition: opacity 1s;
   opacity: 1;
 }
 body #content .loading-content .loading-container {
