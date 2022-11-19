@@ -14,8 +14,8 @@
 </head>
 
 <body>
-    <header id=header>
-        <div class="image" v-if="episodes.length > 0">
+    <header id=header v-if="episodes.length > 0">
+        <div class="image">
             <template v-for="(episode,index) in episodes">
                 <img class="back" :class="{hidden: index != selected}" :src="episodes[index].img" v-bind:id="episode.id" onclick="setEpisode(this)">
                 <img class="front" :class="{hidden: index != selected}" :src="episodes[index].img" v-bind:id="episode.id" onclick="setEpisode(this)">

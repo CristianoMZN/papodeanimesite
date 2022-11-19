@@ -1,6 +1,5 @@
 getData("https://anchor.fm/s/35969184/podcast/rss");
 
-
 var episodes, app;
 var banner = new Vue(
     {
@@ -17,7 +16,6 @@ async function getData(url) {
     var text = await request.text();
     xmlToDoc(text);
 }
-
 function xmlToDoc(xml) {
     var episodes = [],title, mp3, desc, img, items;
     var parser = new DOMParser();
@@ -29,9 +27,14 @@ function xmlToDoc(xml) {
         title = items[i].querySelector("title").textContent;
         mp3 = items[i].querySelector("enclosure").getAttribute("url");
         desc = items[i].getElementsByTagName("itunes:summary")[0].childNodes[0].textContent;
-        img = items[i].getElementsByTagName("itunes:image")[0].getAttribute("href");
         season = items[i].getElementsByTagName("itunes:season")[0].textContent;
         number = items[i].getElementsByTagName("itunes:episode")[0] ? items[i].getElementsByTagName("itunes:episode")[0].textContent : 0;
+
+        if(season == "1"){
+            img = "img/episodios/" + number + ".jpg"
+        }else{
+            img = "img/episodios/pdn_" + number + ".jpg"
+        }
 
         episodes.push({
             id: i,
@@ -95,7 +98,6 @@ function setBanner(){
     }
     banner.url = url;
 }
-
 document.body.onresize = function(evt){
     setBanner();
 }
@@ -111,7 +113,6 @@ function setEpisode(event) {
     window.location.hash = "episodio="+episode.number+"temporada="+episode.season;
     app.selectedEpisode = episode;
 }
-
 function searchEpisode(){
     if(window.location.hash == '' || !window.location.hash){
         return;
@@ -130,7 +131,6 @@ function searchEpisode(){
         }
     }
 }
-
 function prevBanner() {
     if (banner.selected == 0) {
         banner.selected = 3
@@ -140,7 +140,6 @@ function prevBanner() {
     }
     console.log("novo banner selecionado: ", banner.episodes[banner.selected].title);
 }
-
 function nextBanner() {
     if (banner.selected == 3) {
         banner.selected = 0
