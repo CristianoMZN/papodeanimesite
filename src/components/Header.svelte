@@ -1,7 +1,10 @@
 <script>
+    import banner from '../img/banner.png';
 </script>
 <div>
-    <img src="/img/banner.png" alt="">
+    <a href="./">
+        <img src={banner} alt="">
+    </a>
 </div>
 
 <style>
