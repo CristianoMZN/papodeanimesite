@@ -28,21 +28,24 @@
     <h1>{episode.title}</h1>
     <p>
         {@html episode.desc}
+        <br><br>
+        <a href={episode.mp3}>Clique aqui e ouça Agora!</a>
     </p>
     {/if}
 </div>
 <style>
     div {
-        /* box-shadow: 0px 0px 5px 5px purple; */
         display: grid;
         max-width: 80%;
         margin: 50px auto;
-        grid-template-columns: 35% 65%;
+        grid-template-columns: 35% 60%;
         grid-template-rows: 75px auto;
+        column-gap: 5%;
+
     }
 
     h1 {
-        margin-top: 0;
+        margin: 0;
     }
 
     img {
@@ -52,6 +55,23 @@
     }
 
     p {
+        max-width: 100%;
+        margin: auto 0;
+        text-wrap: pretty;
+        word-break: break-word;
         padding-left: 25px;
+    }
+
+    @media (max-width: 992px) {
+        div {
+            grid-template-columns: auto;
+            grid-template-rows: 256px auto auto;
+            row-gap: 30px;
+        }
+
+        img {
+            width: 256px;
+            grid-row: 1 / 2;
+        }
     }
 </style>

@@ -48,7 +48,7 @@
 	}
 
 	.dark_mode {
-		background-color: black;
+		background-color: #050505;
 		color: white;
 	}
 
