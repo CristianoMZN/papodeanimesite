@@ -4,7 +4,7 @@
 	import Header from '../components/Header.svelte';
 	import Footer from '../components/Footer.svelte';
 
-	let dark_mode = false;
+	let dark_mode = true;
 
 	function toogle_dark_mode() {
 		if (dark_mode === true) {

@@ -3,8 +3,7 @@
 </script>
 <a href="./ep?number={episode.number}&season={episode.season}" class="card" item="card">
     <img alt="capa do episódio" src={episode.img} width="200" />
-    <br />
-    {episode.title}
+    <span>{episode.title}</span>
 </a>
 <style>
     a.card {
@@ -15,7 +14,7 @@
         height: 300px;
         margin: 30px 50px;
         display: grid;
-        grid-template-rows: 200px 100px;
+        grid-template-rows: 215px 85px;
         text-align: center;
         align-items: top;
         padding: 10px;
@@ -24,6 +23,12 @@
 
     a:hover {
         box-shadow: 0 0 15px 10px blue;
+    }
+
+    a.card span {
+        font-weight: bold;
+        font-style: italic;
+        padding: 20px 0;
     }
 
     img {

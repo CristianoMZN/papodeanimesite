@@ -24,11 +24,34 @@
 </script>
 <div>
     {#if episode}
-    <h1>{episode.title}</h1>
     <img src=../../../../../{episode.img}>
+    <h1>{episode.title}</h1>
     <p>
         {@html episode.desc}
     </p>
     {/if}
 </div>
-<style></style>
+<style>
+    div {
+        /* box-shadow: 0px 0px 5px 5px purple; */
+        display: grid;
+        max-width: 80%;
+        margin: 50px auto;
+        grid-template-columns: 35% 65%;
+        grid-template-rows: 75px auto;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    img {
+        width: 100%;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    p {
+        padding-left: 25px;
+    }
+</style>
