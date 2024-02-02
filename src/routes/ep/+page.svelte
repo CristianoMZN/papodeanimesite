@@ -24,7 +24,7 @@
 </script>
 <div>
     {#if episode}
-    <img src=../../../../../{episode.img}>
+    <img alt="" src=../../../../../{episode.img}>
     <h1>{episode.title}</h1>
     <p>
         {@html episode.desc}
