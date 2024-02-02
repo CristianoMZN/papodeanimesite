@@ -55,8 +55,4 @@
     a:hover {
         text-decoration: none;
     }
-
-    img {
-        width: 100%;
-    }
 </style>
