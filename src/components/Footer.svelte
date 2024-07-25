@@ -3,7 +3,7 @@
 </script>
 <div class="footer">
     <div>
-        2021 - 2023 Papo de anime
+        2021 - 2024 Papo de anime
     </div>
 </div>
 
