@@ -10,6 +10,9 @@ export default {
 			fallback: null,
 			precompress: false,
 			strict: true
-		})
+		}),
+		prerender: {
+			handleHttpError: 'ignore'
+		}
 	}
 };

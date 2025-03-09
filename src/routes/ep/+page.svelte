@@ -3,7 +3,9 @@
     import { onMount } from "svelte";
 
     let episode;
-    onMount(function () {
+    let path = "../img/episodios/00_default.jpg";
+    // ../../../../../{episode.img}
+    onMount(async function () {
         let url = document.location.search;
         function getEpisode() {
             let data = new URLSearchParams(url);
@@ -20,11 +22,18 @@
             return episode;
         }
         episode = getEpisode();
+
+        fetch("../" + episode.img)
+            .then(response => {
+                if (response.ok) {
+                    path = "../" + episode.img;
+                }
+            }).catch(error => { console.log(error) });
     });
 </script>
 <div>
     {#if episode}
-    <img alt="" src=../../../../../{episode.img}>
+    <img alt="" src={path}>
     <h1>{episode.title}</h1>
     <p>
         {@html episode.desc}
