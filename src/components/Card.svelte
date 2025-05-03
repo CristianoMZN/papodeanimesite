@@ -1,21 +1,31 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount } from "svelte";
     export let episode;
 
     let path = "img/episodios/00_default.jpg";
-    onMount(async function () {
+    async function att_image() {
         fetch(episode.img)
-            .then(response => {
+            .then((response) => {
                 if (response.ok) {
                     path = episode.img;
                 }
-            }).catch(error => { console.log(error) });
-    });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+    att_image();
 </script>
-<a href="./ep?number={episode.number}&season={episode.season}" class="card" item="card">
+
+<a
+    href="./ep?number={episode.number}&season={episode.season}"
+    class="card"
+    item="card"
+>
     <img alt="capa do episódio" src={path} width="200" />
     <span>{episode.title}</span>
 </a>
+
 <style>
     a.card {
         background-color: white;
@@ -29,7 +39,10 @@
         text-align: center;
         align-items: top;
         padding: 10px;
-        transition: box-shadow 0.5s, background-color 1s, color 1s;
+        transition:
+            box-shadow 0.5s,
+            background-color 1s,
+            color 1s;
     }
 
     a:hover {
