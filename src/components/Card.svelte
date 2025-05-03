@@ -1,21 +1,6 @@
 <script>
     import { onMount } from "svelte";
     export let episode;
-
-    let path = "img/episodios/00_default.jpg";
-    onMount(async function () {
-        fetch(episode.img)
-            .then((response) => {
-                if (response.ok) {
-                    path = episode.img;
-                }
-            })
-            .catch((error) => {
-                console.log(
-                    "Imagem não encontrada, será usada a imagem padrão",
-                );
-            });
-    });
 </script>
 
 <a
@@ -23,7 +8,7 @@
     class="card"
     item="card"
 >
-    <img alt="capa do episódio" src={path} width="200" />
+    <img alt="capa do episódio" src={episode.img} width="200" />
     <span>{episode.title}</span>
 </a>
 
