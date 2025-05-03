@@ -3,7 +3,7 @@
     export let episode;
 
     let path = "img/episodios/00_default.jpg";
-    async function att_image() {
+    onMount(async function () {
         fetch(episode.img)
             .then((response) => {
                 if (response.ok) {
@@ -11,10 +11,11 @@
                 }
             })
             .catch((error) => {
-                console.log(error);
+                console.log(
+                    "Imagem não encontrada, será usada a imagem padrão",
+                );
             });
-    }
-    att_image();
+    });
 </script>
 
 <a
